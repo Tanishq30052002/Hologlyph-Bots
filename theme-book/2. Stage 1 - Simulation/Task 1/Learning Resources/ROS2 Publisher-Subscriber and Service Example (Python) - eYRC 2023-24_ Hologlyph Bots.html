@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_pubsub_example.html -->
+<html lang="en" class="js sidebar-visible space"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24: Hologlyph Bots </title>
+
+
+        <!-- Custom HTML head -->
+        
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+        <!-- 
+        <link rel="icon" href="../../favicon.svg">
+         -->
+        <link rel="shortcut icon" href="https://portal.e-yantra.org/themeBook/hb/favicon.png">
+        <link rel="stylesheet" href="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/variables.css">
+        <link rel="stylesheet" href="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/general.css">
+        <link rel="stylesheet" href="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/chrome.css">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/font-awesome.css">
+        <link rel="stylesheet" href="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/highlight.css">
+        <link rel="stylesheet" href="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/tomorrow-night.css" disabled="">
+        <link rel="stylesheet" href="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/ayu-highlight.css" disabled="">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/style.css">
+
+        <!-- MathJax -->
+        <script async="" type="text/javascript" src="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/MathJax.js.download"></script>
+    <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+    <body data-new-gr-c-s-check-loaded="14.1174.0" data-gr-ext-installed=""><div id="MathJax_Message" style="display: none;"></div>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = "space";
+            <!-- window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "space"; -->
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('space')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="false">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="https://portal.e-yantra.org/themeBook/hb/welcome.html" tabindex="0">Welcome to Hologlyph Bots theme 😄</a></li><li class="spacer"></li><li class="chapter-item "><div>Stage 1</div></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/task_0.html" tabindex="0">Task 0</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/Installation_task0.html" tabindex="0">Installation of Ubuntu and ROS</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/PB_task0.html" tabindex="0">Submission Instructions </a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/codechef.html" tabindex="0">Codechef Contest</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/learning_resources.html" tabindex="0">Learning Resources</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_resources.html" tabindex="0">Linux Resources</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_file_system_directories.html" tabindex="0">Linux File System Directories</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_file_permissions.html" tabindex="0">Linux File Permissions</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_file_commands.html" tabindex="0">Linux Commands</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/shell_scripting.html" tabindex="0">Shell Scripting</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/Shell_scripting_example.html" tabindex="0">Example_1</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/shell_scripting_example2.html" tabindex="0">Example_2</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/python/pyhton_resources.html" tabindex="0">Python Resources</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1.html" tabindex="0">Task 1</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1a_prob_statement.html" tabindex="0">Task 1A</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1a_prob_statement.html" tabindex="0">Problem Statement</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1a_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_prob_statement.html" tabindex="0">Task 1B</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_prob_statement.html" tabindex="0">Problem Statement</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_gazebo.html" tabindex="0">Creating the package and Robot Description</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_launch.html" tabindex="0">Creating A Launch File And Setup</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_controller.html" tabindex="0">Controller</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_simplified.html" tabindex="0">Simplified Setup</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html" tabindex="0">Learning Resources</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html" tabindex="0">ROS2 Concepts</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/Ws_pk_resource.html" tabindex="0">Setting up Workspaces and Packages</a></li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_pubsub_example.html" class="active" tabindex="0">ROS2 Publisher-Subscriber and Service Example (Python)</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/task_1b_services.html" tabindex="0">ROS2 Services (Task 1B)</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2_motiv.html" tabindex="0">Task 2</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2a_prob_statement.html" tabindex="0">Task 2A</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2a_prob_statement.html" tabindex="0">Problem Statement</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2a_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2b_prob_statement.html" tabindex="0">Task 2B</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2b_prob_statement.html" tabindex="0">Problem Statement</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2b_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/computer_vision.html" tabindex="0">Learning Resources</a></li></ol></li><li class="chapter-item "><div></div></li><li class="spacer"></li><li class="chapter-item "><div>Stage 2</div></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3_intro.html" tabindex="0">Task 3</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3a_pb.html" tabindex="0">Task 3A: Bot Design</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3b_arena.html" tabindex="0">Task 3B: Arena Setup</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_testing.html" tabindex="0">Task 3C: Hardware Testing</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_battery_section.html" tabindex="0">Battery and Buck-Converter Testing</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_ESP32_testing.html" tabindex="0">ESP32 and Servo Motor Testing</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_camera_testing.html" tabindex="0">Camera Testing</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_submission.html" tabindex="0">Submission Instructions</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/Task4.html" tabindex="0">Task 4</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/task4a.html" tabindex="0">Task 4a : Bot Fabrication And Test Run</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/task4b.html" tabindex="0">Task 4b : Camera Calibration</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/Task4c.html" tabindex="0">Task 4c : Open Loop Control</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/Task_4b_learning_res.html" tabindex="0">Learning Resources</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/Task_4b_learning_res.html" tabindex="0">Why To Calibrate?📏</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/Task4c_learning_res.html" tabindex="0">Let's MicroROS : Part 1</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/micro_ros_example.html" tabindex="0">Let's MicroROS : Part 2</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_5/task5_intro.html" tabindex="0">Task 5</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_5/task5a.html" tabindex="0">Task 5a : Close loop Control</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_5/task5b.html" tabindex="0">Task 5b : Mini Theme Run</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_6/Task6.html" tabindex="0">Task 6</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_6/Task6.html" tabindex="0">General Instructions</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_6/Task6_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/hardware_procurement.html" tabindex="0">Hardware Procurement</a></li><li class="spacer"></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Rulebook/rulebook.html" tabindex="0">Rulebook</a></li><li class="spacer"></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/git_github.html" tabindex="0">Git and GitHub</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/github_challenge.html" tabindex="0">Github_Challenge</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/coding_std.html" tabindex="0">Coding Standards</a></li><li class="spacer"></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- <html>
+ 	<head>
+ 	<style>
+ 		
+ 	@media only screen and (max-width: 600px) {
+ 	  .eyrc_ckt{
+ 			display:none;
+ 		}
+ 	}
+ 
+ 	</style>
+ 	</head>
+ 	<body>
+ 		<div>
+ 		<center></center>
+ 			<div style="display:flex; justify-content:space-between;padding:10px;padding-top:0">
+ 				<div >
+ 					<img src="https://www.e-yantra.org/img/eYantra_logo.svg" alt="e-yantra_logo" height="40px" style="padding:10px 15px;" />
+ 				</div>
+ 				<div>
+ 					<img src="https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/eyrc-header.svg" height="80px"  class="eyrc_ckt">
+ 				</div>
+ 				<div style="font-weight:900;font-size:20px;text-align:center;padding:10px 15px">
+ 					Robotics Competition<br>
+ 					2023-24
+ 				</div>
+ 			</div>
+ 			
+ 		</div>
+ 	</body>
+ </html>
+ 
+ 
+ -->
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar autohide sticky bordered" style="background-color: transparent;">
+                    <div style="width:100%">
+                        
+                        	
+                        	<style>
+                        		
+                        	@media only screen and (max-width: 600px) {
+                        	  .eyrc_ckt{
+                        			display:none;
+                        		}
+                        	}
+                        
+                        	</style>
+                        	
+                        	
+                        		<div>
+                        		<center></center>
+                        			<div style="display:flex; justify-content:space-between;padding:10px;padding-top:0">
+                        				<div>
+                        					<img src="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/eYantra_logo.svg" alt="e-yantra_logo" height="40px" style="padding:10px 15px;">
+                        				</div>
+                        				<div>
+                        					<img src="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/eyrc-header.svg" height="80px" class="eyrc_ckt">
+                        				</div>
+                        				<div style="font-weight:900;font-size:20px;text-align:center;padding:10px 15px">
+                        					Robotics Competition<br>
+                        					2023-24
+                        				</div>
+                        			</div>
+                        			
+                        		</div>
+                        	
+                        
+                        
+                        
+                    </div>
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="true">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="space">Space (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">eYRC 2023-24: Hologlyph Bots </h1>
+
+                    <div class="right-buttons">
+                        <div id="navigation-buttons" type="button" onclick=" window.open(&#39;https://portal.e-yantra.org/profile_home&#39;, &#39;_blank&#39;)">Home</div>
+                        <div id="navigation-buttons" type="button" onclick=" window.open(&#39;https://discuss.e-yantra.org/c/astrotinker-bot/&#39;, &#39;_blank&#39;)">Forum</div>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="ros2-writing-a-simple-publisher-and-subscriber-python"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_pubsub_example.html#ros2-writing-a-simple-publisher-and-subscriber-python">ROS2: Writing a simple publisher and subscriber (Python)</a></h1>
+<p>In this secion, we will learn how to write a simple publisher and subscriber program in python using an example.</p>
+<h2 id="introduction"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_pubsub_example.html#introduction">Introduction</a></h2>
+<p>Before we redirect you to the example, allow us to give a brief introduction about publishers and subscribers.</p>
+<h4 id="publisher"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_pubsub_example.html#publisher">Publisher</a></h4>
+<p>A ROS publisher is a ROS node that publishes a specific type of ROS message over a given ROS topic.</p>
+<p>The publisher creates a particular type of ROS message. In the given example, it's <strong>std_msgs/String</strong>. How do we know which message is published in our topic? There's a command given in <a href="https://portal.e-yantra.org/src/Task_1/learning_resources/ROS2_resources.html">ROS2 Concepts</a>, do you remember which one?🤔</p>
+<h4 id="subscriber"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_pubsub_example.html#subscriber">Subscriber</a></h4>
+<p>A ROS Subscriber is a ROS node which is essentially a process or executable program, written to ‘obtain from’ or ‘subscribe to’ the messages and information being published on a ROS Topic.</p>
+<p>Similar to publishers, we can use the same command given in <a href="https://portal.e-yantra.org/src/Task_1/learning_resources/ROS2_resources.html">ROS2 Concepts</a> to find out which message is being received by the subscriber. </p>
+<blockquote>
+<p><strong>Note:</strong> In Task 1A, we'll need to create a <strong>single</strong> node that subscribes from "<em>pose</em>" and publishes to "<em>cmd_vel</em>" topics.</p>
+</blockquote>
+<h3 id="the-example-writing-a-simple-publisher-and-subscriber-python"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_pubsub_example.html#the-example-writing-a-simple-publisher-and-subscriber-python">THE EXAMPLE: Writing a simple publisher and subscriber (Python)</a></h3>
+<p>We're all ready for some hands on learning now! Given below is the link to official ROS2 Wiki website. Let's head over straight to the example given on their webpage and try to perform the same.</p>
+<p><em>(<strong>Note:</strong> It is very important that you perform this example to strengthen your understanding of ROS especially for Task 1)</em></p>
+<h3 id="ros-2-wiki-example-writing-a-simple-publisher-and-subscriber-python"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_pubsub_example.html#ros-2-wiki-example-writing-a-simple-publisher-and-subscriber-python"></a><a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html">ROS 2 Wiki Example: Writing a simple publisher and subscriber (Python)</a></h3>
+<hr>
+<h1 id="ros2-writing-a-service-client-python"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_pubsub_example.html#ros2-writing-a-service-client-python">ROS2: Writing a Service Client (Python)</a></h1>
+<p>We have already discussed ROS services in <a href="https://portal.e-yantra.org/src/Task_1/learning_resources/ROS2_resources.html">ROS2 Concepts</a>. Now it's time to try making a service client on our own. Making a server is not needed for task 1 and therefore not done here, but if you are interested feel free to explore: <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html"></a></p>
+<p>Given below is the syntax for a service function to change the colour of the pen in turtlesim.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-python hljs"><span class="hljs-keyword">from</span> turtlesim.srv <span class="hljs-keyword">import</span> SetPen
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">call_set_pen_service</span>(<span class="hljs-params">self, r, g, b, width, off</span>):</span>
+        client = self.create_client(SetPen, <span class="hljs-string">'/turtle2/set_pen'</span>)
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> client.wait_for_service(<span class="hljs-number">1.0</span>):
+            self.get_logger().warn(<span class="hljs-string">"Waiting for service..."</span>)
+
+        request = SetPen.Request()
+        request.r = r
+        request.g = g
+        request.b = b
+        request.width = width
+        request.off = off
+
+        future = client.call_async(request)
+</code></pre>
+<p>In order to call the service, you can simply call the defined funciton wherever you want to run the service in your code.
+Note that we're not using the done callback in this service function for the sake of simplicity, i.e. this service will not provide a textual feedback when initiated successfully. </p>
+<p>Also, making a server is not needed for task 1 and therefore not discussed here. </p>
+<p>If you wish to learn more about services, you can visit <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html">ROS2 Wiki: Writing a simple service and client (Python)</a></p>
+<hr>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/Ws_pk_resource.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/task_1b_services.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/Ws_pk_resource.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/task_1b_services.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/elasticlunr.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/mark.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/searcher.js.download" type="text/javascript" charset="utf-8"></script>
+
+        <script src="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/clipboard.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/highlight.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/book.js.download" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="./ROS2 Publisher-Subscriber and Service Example (Python) - eYRC 2023-24_ Hologlyph Bots_files/sidebar.js.download"></script>
+
+
+    
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

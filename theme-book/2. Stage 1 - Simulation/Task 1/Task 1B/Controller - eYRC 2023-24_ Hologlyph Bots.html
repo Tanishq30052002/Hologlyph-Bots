@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_controller.html -->
+<html lang="en" class="js sidebar-visible space"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>Controller - eYRC 2023-24: Hologlyph Bots </title>
+
+
+        <!-- Custom HTML head -->
+        
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+        <!-- 
+        <link rel="icon" href="../favicon.svg">
+         -->
+        <link rel="shortcut icon" href="https://portal.e-yantra.org/themeBook/hb/favicon.png">
+        <link rel="stylesheet" href="./Controller - eYRC 2023-24_ Hologlyph Bots_files/variables.css">
+        <link rel="stylesheet" href="./Controller - eYRC 2023-24_ Hologlyph Bots_files/general.css">
+        <link rel="stylesheet" href="./Controller - eYRC 2023-24_ Hologlyph Bots_files/chrome.css">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./Controller - eYRC 2023-24_ Hologlyph Bots_files/font-awesome.css">
+        <link rel="stylesheet" href="./Controller - eYRC 2023-24_ Hologlyph Bots_files/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./Controller - eYRC 2023-24_ Hologlyph Bots_files/highlight.css">
+        <link rel="stylesheet" href="./Controller - eYRC 2023-24_ Hologlyph Bots_files/tomorrow-night.css" disabled="">
+        <link rel="stylesheet" href="./Controller - eYRC 2023-24_ Hologlyph Bots_files/ayu-highlight.css" disabled="">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./Controller - eYRC 2023-24_ Hologlyph Bots_files/style.css">
+
+        <!-- MathJax -->
+        <script async="" type="text/javascript" src="./Controller - eYRC 2023-24_ Hologlyph Bots_files/MathJax.js.download"></script>
+    <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+    <body data-new-gr-c-s-check-loaded="14.1174.0" data-gr-ext-installed=""><div id="MathJax_Message" style="display: none;"></div>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "space";
+            <!-- window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "space"; -->
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('space')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="false">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="https://portal.e-yantra.org/themeBook/hb/welcome.html" tabindex="0">Welcome to Hologlyph Bots theme 😄</a></li><li class="spacer"></li><li class="chapter-item "><div>Stage 1</div></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/task_0.html" tabindex="0">Task 0</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/Installation_task0.html" tabindex="0">Installation of Ubuntu and ROS</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/PB_task0.html" tabindex="0">Submission Instructions </a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/codechef.html" tabindex="0">Codechef Contest</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/learning_resources.html" tabindex="0">Learning Resources</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_resources.html" tabindex="0">Linux Resources</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_file_system_directories.html" tabindex="0">Linux File System Directories</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_file_permissions.html" tabindex="0">Linux File Permissions</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_file_commands.html" tabindex="0">Linux Commands</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/shell_scripting.html" tabindex="0">Shell Scripting</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/Shell_scripting_example.html" tabindex="0">Example_1</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/shell_scripting_example2.html" tabindex="0">Example_2</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/python/pyhton_resources.html" tabindex="0">Python Resources</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1.html" tabindex="0">Task 1</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1a_prob_statement.html" tabindex="0">Task 1A</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1a_prob_statement.html" tabindex="0">Problem Statement</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1a_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_prob_statement.html" tabindex="0">Task 1B</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_prob_statement.html" tabindex="0">Problem Statement</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_gazebo.html" tabindex="0">Creating the package and Robot Description</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_launch.html" tabindex="0">Creating A Launch File And Setup</a></li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_controller.html" class="active" tabindex="0">Controller</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_simplified.html" tabindex="0">Simplified Setup</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item"><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html" tabindex="0">Learning Resources</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html" tabindex="0">ROS2 Concepts</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/Ws_pk_resource.html" tabindex="0">Setting up Workspaces and Packages</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_pubsub_example.html" tabindex="0">ROS2 Publisher-Subscriber and Service Example (Python)</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/task_1b_services.html" tabindex="0">ROS2 Services (Task 1B)</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2_motiv.html" tabindex="0">Task 2</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2a_prob_statement.html" tabindex="0">Task 2A</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2a_prob_statement.html" tabindex="0">Problem Statement</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2a_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2b_prob_statement.html" tabindex="0">Task 2B</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2b_prob_statement.html" tabindex="0">Problem Statement</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2b_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/computer_vision.html" tabindex="0">Learning Resources</a></li></ol></li><li class="chapter-item "><div></div></li><li class="spacer"></li><li class="chapter-item "><div>Stage 2</div></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3_intro.html" tabindex="0">Task 3</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3a_pb.html" tabindex="0">Task 3A: Bot Design</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3b_arena.html" tabindex="0">Task 3B: Arena Setup</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_testing.html" tabindex="0">Task 3C: Hardware Testing</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_battery_section.html" tabindex="0">Battery and Buck-Converter Testing</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_ESP32_testing.html" tabindex="0">ESP32 and Servo Motor Testing</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_camera_testing.html" tabindex="0">Camera Testing</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_submission.html" tabindex="0">Submission Instructions</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/Task4.html" tabindex="0">Task 4</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/task4a.html" tabindex="0">Task 4a : Bot Fabrication And Test Run</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/task4b.html" tabindex="0">Task 4b : Camera Calibration</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/Task4c.html" tabindex="0">Task 4c : Open Loop Control</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/Task_4b_learning_res.html" tabindex="0">Learning Resources</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/Task_4b_learning_res.html" tabindex="0">Why To Calibrate?📏</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/Task4c_learning_res.html" tabindex="0">Let's MicroROS : Part 1</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/micro_ros_example.html" tabindex="0">Let's MicroROS : Part 2</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_5/task5_intro.html" tabindex="0">Task 5</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_5/task5a.html" tabindex="0">Task 5a : Close loop Control</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_5/task5b.html" tabindex="0">Task 5b : Mini Theme Run</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_6/Task6.html" tabindex="0">Task 6</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_6/Task6.html" tabindex="0">General Instructions</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_6/Task6_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/hardware_procurement.html" tabindex="0">Hardware Procurement</a></li><li class="spacer"></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Rulebook/rulebook.html" tabindex="0">Rulebook</a></li><li class="spacer"></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/git_github.html" tabindex="0">Git and GitHub</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/github_challenge.html" tabindex="0">Github_Challenge</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/coding_std.html" tabindex="0">Coding Standards</a></li><li class="spacer"></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- <html>
+ 	<head>
+ 	<style>
+ 		
+ 	@media only screen and (max-width: 600px) {
+ 	  .eyrc_ckt{
+ 			display:none;
+ 		}
+ 	}
+ 
+ 	</style>
+ 	</head>
+ 	<body>
+ 		<div>
+ 		<center></center>
+ 			<div style="display:flex; justify-content:space-between;padding:10px;padding-top:0">
+ 				<div >
+ 					<img src="https://www.e-yantra.org/img/eYantra_logo.svg" alt="e-yantra_logo" height="40px" style="padding:10px 15px;" />
+ 				</div>
+ 				<div>
+ 					<img src="https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/eyrc-header.svg" height="80px"  class="eyrc_ckt">
+ 				</div>
+ 				<div style="font-weight:900;font-size:20px;text-align:center;padding:10px 15px">
+ 					Robotics Competition<br>
+ 					2023-24
+ 				</div>
+ 			</div>
+ 			
+ 		</div>
+ 	</body>
+ </html>
+ 
+ 
+ -->
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar autohide sticky bordered" style="background-color: transparent;">
+                    <div style="width:100%">
+                        
+                        	
+                        	<style>
+                        		
+                        	@media only screen and (max-width: 600px) {
+                        	  .eyrc_ckt{
+                        			display:none;
+                        		}
+                        	}
+                        
+                        	</style>
+                        	
+                        	
+                        		<div>
+                        		<center></center>
+                        			<div style="display:flex; justify-content:space-between;padding:10px;padding-top:0">
+                        				<div>
+                        					<img src="./Controller - eYRC 2023-24_ Hologlyph Bots_files/eYantra_logo.svg" alt="e-yantra_logo" height="40px" style="padding:10px 15px;">
+                        				</div>
+                        				<div>
+                        					<img src="./Controller - eYRC 2023-24_ Hologlyph Bots_files/eyrc-header.svg" height="80px" class="eyrc_ckt">
+                        				</div>
+                        				<div style="font-weight:900;font-size:20px;text-align:center;padding:10px 15px">
+                        					Robotics Competition<br>
+                        					2023-24
+                        				</div>
+                        			</div>
+                        			
+                        		</div>
+                        	
+                        
+                        
+                        
+                    </div>
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="true">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="space">Space (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">eYRC 2023-24: Hologlyph Bots </h1>
+
+                    <div class="right-buttons">
+                        <div id="navigation-buttons" type="button" onclick=" window.open(&#39;https://portal.e-yantra.org/profile_home&#39;, &#39;_blank&#39;)">Home</div>
+                        <div id="navigation-buttons" type="button" onclick=" window.open(&#39;https://discuss.e-yantra.org/c/astrotinker-bot/&#39;, &#39;_blank&#39;)">Forum</div>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <center><h1>
+Controller
+</h1></center>
+<hr>
+<p>Well done on making it to Step 2 of Task 1B!
+So now that we’ve,</p>
+<ul>
+<li>created an urdf file,<br></li>
+<li>launched gazebo, spawned the robot and<br></li>
+<li>are able to actuate it manually<br></li>
+</ul>
+<p>In step 2, Let’s automate the robot, by creating a controller rospy node that will make the robot automatically go to desired goal pose (pose, refers to the position AND orientation of the robot).</p>
+<h2 id="introduction"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_controller.html#introduction">Introduction</a></h2>
+<ul>
+<li>go-to-goal controller
+<ul>
+<li>given ideal localisation and simplified kinematics from step 1.</li>
+</ul>
+</li>
+</ul>
+<p><strong>skipping/simplified localisation:</strong> The <strong>odom</strong> topic (as declared in the urdf file) is directly giving us the present pose of the robot. Which is not the case in real world. We will eventually use a marker and openCV to localise the robot in a more realistic way. [localise: to answer “Where the Robot is?”, specifically, what is the present (x, y, theta) of the robot.]</p>
+<p><strong>skipping/simplified kinematics:</strong> The controller we are designing, outputs something like <code class="hljs">[v_x, v_y, omega]</code> that is sent to cmd_vel, which independently controls the velocities of chassis directly. But in hardware, we are not directly actuating the chassis by giving <code class="hljs">[v_x, v_y, w]</code>, but we give wheel velocities, which is <code class="hljs">[v_1, v_2, v_3]</code> for a three omni-wheeled robot.
+We are skipping the problem of finding <code class="hljs">[v_1, v_2, v_3]</code> given <code class="hljs">[v_x, v_y, w]</code>.</p>
+<p>These topics will be covered in Task 2</p>
+<p>So what is Holonomic Drive?</p>
+<ul>
+<li>
+<p>An object in the physical “3D” space we live in has 6 Degreed of Freedom.</p>
+<ul>
+<li>3 translations, 3 rotations.</li>
+</ul>
+</li>
+<li>
+<p>An object on a “2D” plane has 3 Degreed of freedom:</p>
+<ul>
+<li>2 translations and 1 rotation.</li>
+<li>In our convention, it will be translation in the X and Y axis and rotation about the Z axis.<br></li>
+</ul>
+</li>
+<li>
+<p><strong>Ground vehicles live on a plane.</strong><br>
+The popular differential drive robot has a Non Holonomic CONSTRAINT. That doesn’t allow the robot to translate in one of the axis (say X). This is a constraint on velocity and NOT a constraint on position. So although a differential drive CAN parallel park it has to make many complex manoeuvres to achieve it. While a holonomic drive (ex: Omni wheel robot) can simply translate in that direction (X) since it has no such constraint in that direction.<br></p>
+</li>
+<li>
+<p>I.E. The ground vehicle can directly control velocities in ALL the 3 Degrees of Freedom possible.<br>
+I.E. Control [v_x, v_y, w] linear velocity in X-Y and Omega: angular velocity in the Z axis.
+(Unlike only two, [v, w] (or [v_y, w] in our convention) for a differential drive robot.)</p>
+</li>
+</ul>
+<p>The above block of explanation might now give you some clarity on what is holonomic drive.</p>
+<p>This leaves one more major question unanswered:
+What is Forward and Inverse Kinematics?
+In our specific case of <strong>three-omni-wheeled robot</strong>, We could simplify it by saying,
+it’s the relationship between <strong>[v_1, v_2, v_3]</strong> and <strong>[v_x, v_y, w]</strong>
+That’s all for now, more about this in Task 2!</p>
+<p>Enough chit-chat, let’s get down to business!</p>
+<h2 id="the-task"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_controller.html#the-task">The Task</a></h2>
+<p>So continuing from where we left off in Step1.
+We now have a launch file which opens gazebo, empty world and spawns the robot.</p>
+<p>If you do that and then do rostopic list, you should find two topic of interest:</p>
+<ul>
+<li><strong>/cmd_vel</strong><br></li>
+<li><strong>/odom</strong></li>
+</ul>
+<p>which are defined in the urdf file, gazebo plugin.</p>
+<p>Now we shall create a rospy node: controller.py that will</p>
+<ul>
+<li><strong>subscribe to /odom</strong> and </li>
+<li><strong>publish to /cmd_vel</strong></li>
+</ul>
+<ol>
+<li>
+<p>So in your package directory, create a <strong>your_package_name/scripts/</strong> directory and create a file name controller.py inside it.</p>
+</li>
+<li>
+<p>Now let’s start writing the <strong>controller.py</strong> file.</p>
+</li>
+</ol>
+<p>We’ll need to <strong>import</strong> the following modules:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-python hljs"><span class="hljs-comment">#!/usr/bin/env python3</span>
+<span class="hljs-keyword">import</span> rclpy &nbsp;                                        <span class="hljs-comment"># ROS 2 Python library for creating ROS 2 nodes</span>
+<span class="hljs-keyword">from</span> rclpy.node <span class="hljs-keyword">import</span> Node &nbsp;                         <span class="hljs-comment"># Node class for creating ROS 2 nodes</span>
+<span class="hljs-keyword">from</span> geometry_msgs.msg <span class="hljs-keyword">import</span> Twist                   <span class="hljs-comment"># Publishing to /cmd_vel with msg type: Twist</span>
+<span class="hljs-keyword">from</span> nav_msgs.msg <span class="hljs-keyword">import</span> Odometry &nbsp;                   <span class="hljs-comment"># Subscribing to /odom with msg type: Odometry</span>
+<span class="hljs-keyword">import</span> time &nbsp;                                         <span class="hljs-comment"># Python time module for time-related functions</span>
+<span class="hljs-keyword">import</span> math &nbsp;                                         <span class="hljs-comment"># Python math module for mathematical functions</span>
+<span class="hljs-keyword">from</span> tf.transformations <span class="hljs-keyword">import</span> euler_from_quaternion &nbsp;<span class="hljs-comment"># Odometry is given as a quaternion, but for the controller we'll need to find the orientaion theta by converting to euler angle</span>
+<span class="hljs-keyword">from</span> my_robot_interfaces.srv <span class="hljs-keyword">import</span> NextGoal          <span class="hljs-comment"># Service</span>
+</code></pre>
+<p>We’ll need some variables to keep track of <strong>pose</strong> of the robot, <strong>x, y, theta</strong>.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-python hljs">self.hb_x = <span class="hljs-number">0</span>
+self.hb_y = <span class="hljs-number">0</span>
+self.hb_theta = <span class="hljs-number">0</span>
+</code></pre>
+<p>We’ll need a callback function for subscribing to <strong>/odom</strong>.
+As you must be aware by now, this function will be automatically called everytime to update the pose of the robot (whenever there is an update in the <code class="hljs">/odom</code> topic).</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-python hljs"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">odometryCb</span>(<span class="hljs-params">msg</span>):</span>
+    <span class="hljs-keyword">global</span> hb_x, hb_y, hb_theta
+
+    <span class="hljs-comment"># Write your code to take the msg and update the three variables</span>
+</code></pre>
+<p>ROS2 Odometry documentation is given <strong><a href="https://docs.ros2.org/foxy/api/nav_msgs/msg/Odometry.html">here</a></strong> for reference.</p>
+<p>Have a look at the data structure of the msg received as argument (Odometry message) and figure out how to get <code class="hljs">hb_x</code>, <code class="hljs">hb_y</code> and <code class="hljs">hb_theta</code> from that.</p>
+<p><strong>Hint:</strong> You only need to look at the pose part of the data.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-python hljs"><span class="hljs-keyword">import</span> rclpy
+<span class="hljs-keyword">from</span> rclpy.node <span class="hljs-keyword">import</span> Node
+<span class="hljs-keyword">from</span> geometry_msgs.msg <span class="hljs-keyword">import</span> Twist
+<span class="hljs-keyword">from</span> nav_msgs.msg <span class="hljs-keyword">import</span> Odometry
+<span class="hljs-keyword">import</span> time
+<span class="hljs-keyword">import</span> math
+<span class="hljs-keyword">from</span> tf_transformations <span class="hljs-keyword">import</span> euler_from_quaternion
+<span class="hljs-keyword">from</span> my_robot_interfaces.srv <span class="hljs-keyword">import</span> NextGoal
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HBTask1BController</span>(<span class="hljs-params">Node</span>):</span>
+
+   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span>(<span class="hljs-params">self</span>):</span>
+        super().__init__(<span class="hljs-string">'hb_task1b_controller'</span>)
+        
+        <span class="hljs-comment"># Initialze Publisher and Subscriber</span>
+        <span class="hljs-comment"># We'll leave this for you to figure out the syntax for</span>
+        <span class="hljs-comment"># initialising publisher and subscriber of cmd_vel and odom respectively</span>
+
+        <span class="hljs-comment"># Declare a Twist message</span>
+        self.vel = Twist()
+        <span class="hljs-comment"># Initialise the required variables to 0</span>
+
+        <span class="hljs-comment"># For maintaining control loop rate.</span>
+        self.rate = self.create_rate(<span class="hljs-number">100</span>)
+        <span class="hljs-comment"># Initialise variables that may be needed for the control loop</span>
+        <span class="hljs-comment"># For ex: x_d, y_d, theta_d (in **meters** and **radians**) for defining desired goal-pose.</span>
+        <span class="hljs-comment"># and also Kp values for the P Controller</span>
+
+
+        <span class="hljs-comment"># client for the "next_goal" service</span>
+        self.cli = self.create_client(NextGoal, <span class="hljs-string">'next_goal'</span>)      
+        self.req = NextGoal.Request() 
+        self.index = <span class="hljs-number">0</span>
+
+   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span>(<span class="hljs-params">args=None</span>):</span>
+    rclpy.init(args=args)
+    
+    <span class="hljs-comment"># Create an instance of the EbotController class</span>
+    ebot_controller = HBTask1BController()
+   
+    <span class="hljs-comment"># Send an initial request with the index from ebot_controller.index</span>
+    ebot_controller.send_request(ebot_controller.index)
+    
+    <span class="hljs-comment"># Main loop</span>
+    <span class="hljs-keyword">while</span> rclpy.ok():
+
+        <span class="hljs-comment"># Check if the service call is done</span>
+        <span class="hljs-keyword">if</span> ebot_controller.future.done():
+            <span class="hljs-keyword">try</span>:
+                <span class="hljs-comment"># response from the service call</span>
+                response = ebot_controller.future.result()
+            <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+                ebot_controller.get_logger().infselfo(
+                    <span class="hljs-string">'Service call failed %r'</span> % (e,))
+            <span class="hljs-keyword">else</span>:
+                <span class="hljs-comment">#########           GOAL POSE             #########</span>
+                x_goal      = response.x_goal
+                y_goal      = response.y_goal
+                theta_goal  = response.theta_goal
+                ebot_controller.flag = response.end_of_list
+                <span class="hljs-comment">####################################################</span>
+
+                <span class="hljs-comment"># Find error (in x, y and theta) in global frame</span>
+                <span class="hljs-comment"># the /odom topic is giving pose of the robot in global frame</span>
+                <span class="hljs-comment"># the desired pose is declared above and defined by you in global frame</span>
+                <span class="hljs-comment"># therefore calculate error in global frame</span>
+
+                <span class="hljs-comment"># (Calculate error in body frame)</span>
+                <span class="hljs-comment"># But for Controller outputs robot velocity in robot_body frame, </span>
+                <span class="hljs-comment"># i.e. velocity are define is in x, y of the robot frame, </span>
+                <span class="hljs-comment"># Notice: the direction of z axis says the same in global and body frame</span>
+                <span class="hljs-comment"># therefore the errors will have have to be calculated in body frame.</span>
+                <span class="hljs-comment"># </span>
+                <span class="hljs-comment"># This is probably the crux of Task 1, figure this out and rest should be fine.</span>
+
+                <span class="hljs-comment"># Finally implement a P controller </span>
+                <span class="hljs-comment"># to react to the error with velocities in x, y and theta.</span>
+
+                <span class="hljs-comment"># Safety Check</span>
+                <span class="hljs-comment"># make sure the velocities are within a range.</span>
+                <span class="hljs-comment"># for now since we are in a simulator and we are not dealing with actual physical limits on the system </span>
+                <span class="hljs-comment"># we may get away with skipping this step. But it will be very necessary in the long run.</span>
+
+
+                <span class="hljs-comment">#If Condition is up to you</span>
+                
+                <span class="hljs-comment">############     DO NOT MODIFY THIS       #########</span>
+                ebot_controller.index += <span class="hljs-number">1</span>
+                <span class="hljs-keyword">if</span> ebot_controller.flag == <span class="hljs-number">1</span> :
+                    ebot_controller.index = <span class="hljs-number">0</span>
+                ebot_controller.send_request(ebot_controller.index)
+                <span class="hljs-comment">####################################################</span>
+
+        <span class="hljs-comment"># Spin once to process callbacks</span>
+        rclpy.spin_once(ebot_controller)
+    
+    <span class="hljs-comment"># Destroy the node and shut down ROS</span>
+    ebot_controller.destroy_node()
+    rclpy.shutdown()
+
+    <span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+        main()
+</code></pre>
+<blockquote>
+<p>Initially, if you feel that using services is too overwhelming, you can use the co-ordinates shared below to check if your bot is making a square or not.<br> <em><strong>Do note that this is only for testing purpose and will not be considered for task submission.</strong></em></p>
+</blockquote>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-python hljs">        x = [<span class="hljs-number">4</span>, <span class="hljs-number">-4</span>, <span class="hljs-number">-4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">0</span>]
+        y = [<span class="hljs-number">4</span>, <span class="hljs-number">4</span>, <span class="hljs-number">-4</span>, <span class="hljs-number">-4</span>, <span class="hljs-number">0</span>]
+        theta = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+        <span class="hljs-comment"># the following theta desired are optional since throughout hologlyph theme we shall set theta_desired or theta_goals to 0. </span>
+        <span class="hljs-comment"># theta = [0, PI/2, PI, -PI/2, 0]</span>
+</code></pre>
+<p>Click <a href="https://docs.ros2.org/latest/api/geometry_msgs/msg/Twist.html">here</a> for the data structure of the <strong>Twist message</strong> to figure out how to initialise and set x, y linear velocity and z angular velocity.</p>
+<p>Finally we come to exciting part of the code…</p>
+<h2 id="control-loop"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_controller.html#control-loop">Control Loop!</a></h2>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-python hljs">    <span class="hljs-keyword">while</span> rclpy.ok():
+
+        <span class="hljs-comment"># Find error (in x, y and theta) in global frame</span>
+        <span class="hljs-comment"># the /odom topic is giving pose of the robot in global frame</span>
+        <span class="hljs-comment"># the desired pose is declared above and defined by you in global frame</span>
+        <span class="hljs-comment"># therefore calculate error in global frame</span>
+
+        <span class="hljs-comment"># (Calculate error in body frame)</span>
+        <span class="hljs-comment"># But for Controller outputs robot velocity in robot_body frame, </span>
+        <span class="hljs-comment"># i.e. velocity are define is in x, y of the robot frame, </span>
+        <span class="hljs-comment"># Notice: the direction of z axis says the same in global and body frame</span>
+        <span class="hljs-comment"># therefore the errors will have have to be calculated in body frame.</span>
+        <span class="hljs-comment"># </span>
+        <span class="hljs-comment"># This is probably the crux of Task 1, figure this out and rest should be fine.</span>
+
+        <span class="hljs-comment"># Finally implement a P controller </span>
+        <span class="hljs-comment"># to react to the error with velocities in x, y and theta.</span>
+
+        <span class="hljs-comment"># Safety Check</span>
+        <span class="hljs-comment"># make sure the velocities are within a range.</span>
+        <span class="hljs-comment"># for now since we are in a simulator and we are not dealing with actual physical limits on the system </span>
+        <span class="hljs-comment"># we may get away with skipping this step. But it will be very necessary in the long run.</span>
+
+        rclpy.spin_once(ebot_controller)
+
+    ebot_controller.destroy_node()
+    rclpy.shutdown()
+</code></pre>
+<p>The content of the comment in above code very import so let’s repeat it here:</p>
+<ul>
+<li>
+<p>Find error (in x, y and theta) in global frame</p>
+<ul>
+<li>the /odom topic is giving present pose of the robot in global frame</li>
+<li>the desired pose is declared above and defined by you in global frame therefore calculate error in global frame</li>
+</ul>
+</li>
+<li>
+<p>Calculate error in body frame</p>
+<ul>
+<li>Controller outputs robot velocity in robot_body frame, i.e. velocity are define is in x, y of the robot frame,<br>
+<strong>Notice:</strong> the direction of z axis says the same in global and body frame therefore the errors will have have to be calculated in body frame.</li>
+</ul>
+</li>
+<li>
+<p>Finally implement <strong>P controllers</strong> to react to the error in robot_body frame with velocities in x, y and theta in robot_body frame: [v_x, v_y, w]</p>
+</li>
+</ul>
+<blockquote>
+<p>❗ This is probably the crux of Task 1B <br>
+Please note this is just the approach we took, there may be other approaches that you may come up with.<br>
+Feel absolutely free to go ahead with that approach.</p>
+</blockquote>
+<blockquote>
+<p>The <strong>objective</strong> is simple <br>
+Make the robot go to desired [x_d, y_d, theta_d] by using feedback of present [x, y, theta].</p>
+</blockquote>
+<p>Thats it!</p>
+<p>If the robot goes to the desired goal pose (defined by you),
+Congratulations! You have achieved a major milestone!</p>
+<hr>
+<p>Now it’s time to extend (add some logic) the above code to handle a <strong>sequence</strong> of desired poses.</p>
+<p>So now [x_d, y_d, theta_d] instead of being single values we shall have a list of desired goal poses.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-python hljs"><span class="hljs-comment"># Example</span>
+self.x_goals = [<span class="hljs-number">1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>]
+self.y_goals = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">-1</span>, <span class="hljs-number">0</span>]
+self.theta_goals = [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+</code></pre>
+<p>Once you have entered a list of goal poses, make necessary changes to the control loop to:</p>
+<ul>
+<li>go-to-goal-pose of a certain index (index = 0 at start)</li>
+<li>identify if the goal has been reached (write an if condition)</li>
+<li>stabilise/stay at the goal pose for at least 1 second</li>
+<li>increment index if index &lt; length of the list.</li>
+<li>repeat</li>
+</ul>
+<p>That’s it!</p>
+<p>If the robot goes to the sequence of desired goal poses one after other (defined by you),
+Congratulations you are almost done with Task 1!🥳</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_launch.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_simplified.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_launch.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_simplified.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="./Controller - eYRC 2023-24_ Hologlyph Bots_files/elasticlunr.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./Controller - eYRC 2023-24_ Hologlyph Bots_files/mark.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./Controller - eYRC 2023-24_ Hologlyph Bots_files/searcher.js.download" type="text/javascript" charset="utf-8"></script>
+
+        <script src="./Controller - eYRC 2023-24_ Hologlyph Bots_files/clipboard.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./Controller - eYRC 2023-24_ Hologlyph Bots_files/highlight.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./Controller - eYRC 2023-24_ Hologlyph Bots_files/book.js.download" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="./Controller - eYRC 2023-24_ Hologlyph Bots_files/sidebar.js.download"></script>
+
+
+    
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

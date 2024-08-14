@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<!-- saved from url=(0086)https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html -->
+<html lang="en" class="js sidebar-visible space"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- Book generated using mdBook -->
+        
+        <title>ROS2 Concepts - eYRC 2023-24: Hologlyph Bots </title>
+
+
+        <!-- Custom HTML head -->
+        
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="rgba(0, 0, 0, 0)">
+
+        <!-- 
+        <link rel="icon" href="../../favicon.svg">
+         -->
+        <link rel="shortcut icon" href="https://portal.e-yantra.org/themeBook/hb/favicon.png">
+        <link rel="stylesheet" href="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/variables.css">
+        <link rel="stylesheet" href="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/general.css">
+        <link rel="stylesheet" href="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/chrome.css">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/font-awesome.css">
+        <link rel="stylesheet" href="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/highlight.css">
+        <link rel="stylesheet" href="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/tomorrow-night.css" disabled="">
+        <link rel="stylesheet" href="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/ayu-highlight.css" disabled="">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/style.css">
+
+        <!-- MathJax -->
+        <script async="" type="text/javascript" src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/MathJax.js.download"></script>
+    <style type="text/css">.MathJax_Hover_Frame {border-radius: .25em; -webkit-border-radius: .25em; -moz-border-radius: .25em; -khtml-border-radius: .25em; box-shadow: 0px 0px 15px #83A; -webkit-box-shadow: 0px 0px 15px #83A; -moz-box-shadow: 0px 0px 15px #83A; -khtml-box-shadow: 0px 0px 15px #83A; border: 1px solid #A6D ! important; display: inline-block; position: absolute}
+.MathJax_Menu_Button .MathJax_Hover_Arrow {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; -khtml-border-radius: 4px; font-family: 'Courier New',Courier; font-size: 9px; color: #F0F0F0}
+.MathJax_Menu_Button .MathJax_Hover_Arrow span {display: block; background-color: #AAA; border: 1px solid; border-radius: 3px; line-height: 0; padding: 4px}
+.MathJax_Hover_Arrow:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_Hover_Arrow:hover span {background-color: #CCC!important}
+</style><style type="text/css">#MathJax_About {position: fixed; left: 50%; width: auto; text-align: center; border: 3px outset; padding: 1em 2em; background-color: #DDDDDD; color: black; cursor: default; font-family: message-box; font-size: 120%; font-style: normal; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; border-radius: 15px; -webkit-border-radius: 15px; -moz-border-radius: 15px; -khtml-border-radius: 15px; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_About.MathJax_MousePost {outline: none}
+.MathJax_Menu {position: absolute; background-color: white; color: black; width: auto; padding: 2px; border: 1px solid #CCCCCC; margin: 0; cursor: default; font: menu; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; z-index: 201; box-shadow: 0px 10px 20px #808080; -webkit-box-shadow: 0px 10px 20px #808080; -moz-box-shadow: 0px 10px 20px #808080; -khtml-box-shadow: 0px 10px 20px #808080; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+.MathJax_MenuItem {padding: 2px 2em; background: transparent}
+.MathJax_MenuArrow {position: absolute; right: .5em; padding-top: .25em; color: #666666; font-size: .75em}
+.MathJax_MenuActive .MathJax_MenuArrow {color: white}
+.MathJax_MenuArrow.RTL {left: .5em; right: auto}
+.MathJax_MenuCheck {position: absolute; left: .7em}
+.MathJax_MenuCheck.RTL {right: .7em; left: auto}
+.MathJax_MenuRadioCheck {position: absolute; left: 1em}
+.MathJax_MenuRadioCheck.RTL {right: 1em; left: auto}
+.MathJax_MenuLabel {padding: 2px 2em 4px 1.33em; font-style: italic}
+.MathJax_MenuRule {border-top: 1px solid #CCCCCC; margin: 4px 1px 0px}
+.MathJax_MenuDisabled {color: GrayText}
+.MathJax_MenuActive {background-color: Highlight; color: HighlightText}
+.MathJax_MenuDisabled:focus, .MathJax_MenuLabel:focus {background-color: #E8E8E8}
+.MathJax_ContextMenu:focus {outline: none}
+.MathJax_ContextMenu .MathJax_MenuItem:focus {outline: none}
+#MathJax_AboutClose {top: .2em; right: .2em}
+.MathJax_Menu .MathJax_MenuClose {top: -10px; left: -10px}
+.MathJax_MenuClose {position: absolute; cursor: pointer; display: inline-block; border: 2px solid #AAA; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; font-family: 'Courier New',Courier; font-size: 24px; color: #F0F0F0}
+.MathJax_MenuClose span {display: block; background-color: #AAA; border: 1.5px solid; border-radius: 18px; -webkit-border-radius: 18px; -moz-border-radius: 18px; -khtml-border-radius: 18px; line-height: 0; padding: 8px 0 6px}
+.MathJax_MenuClose:hover {color: white!important; border: 2px solid #CCC!important}
+.MathJax_MenuClose:hover span {background-color: #CCC!important}
+.MathJax_MenuClose:hover:focus {outline: none}
+</style><style type="text/css">.MathJax_Preview .MJXf-math {color: inherit!important}
+</style><style type="text/css">.MJX_Assistive_MathML {position: absolute!important; top: 0; left: 0; clip: rect(1px, 1px, 1px, 1px); padding: 1px 0 0 0!important; border: 0!important; height: 1px!important; width: 1px!important; overflow: hidden!important; display: block!important; -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none}
+.MJX_Assistive_MathML.MJX_Assistive_MathML_Block {width: 100%!important}
+</style><style type="text/css">#MathJax_Zoom {position: absolute; background-color: #F0F0F0; overflow: auto; display: block; z-index: 301; padding: .5em; border: 1px solid black; margin: 0; font-weight: normal; font-style: normal; text-align: left; text-indent: 0; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; box-shadow: 5px 5px 15px #AAAAAA; -webkit-box-shadow: 5px 5px 15px #AAAAAA; -moz-box-shadow: 5px 5px 15px #AAAAAA; -khtml-box-shadow: 5px 5px 15px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true')}
+#MathJax_ZoomOverlay {position: absolute; left: 0; top: 0; z-index: 300; display: inline-block; width: 100%; height: 100%; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+#MathJax_ZoomFrame {position: relative; display: inline-block; height: 0; width: 0}
+#MathJax_ZoomEventTrap {position: absolute; left: 0; top: 0; z-index: 302; display: inline-block; border: 0; padding: 0; margin: 0; background-color: white; opacity: 0; filter: alpha(opacity=0)}
+</style><style type="text/css">.MathJax_Preview {color: #888}
+#MathJax_Message {position: fixed; left: 1em; bottom: 1.5em; background-color: #E6E6E6; border: 1px solid #959595; margin: 0px; padding: 2px 8px; z-index: 102; color: black; font-size: 80%; width: auto; white-space: nowrap}
+#MathJax_MSIE_Frame {position: absolute; top: 0; left: 0; width: 0px; z-index: 101; border: 0px; margin: 0px; padding: 0px}
+.MathJax_Error {color: #CC0000; font-style: italic}
+</style><style type="text/css">.MJXp-script {font-size: .8em}
+.MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+.MJXp-bold {font-weight: bold}
+.MJXp-italic {font-style: italic}
+.MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+.MJXp-largeop {font-size: 150%}
+.MJXp-largeop.MJXp-int {vertical-align: -.2em}
+.MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+.MJXp-display {display: block; text-align: center; margin: 1em 0}
+.MJXp-math span {display: inline-block}
+.MJXp-box {display: block!important; text-align: center}
+.MJXp-box:after {content: " "}
+.MJXp-rule {display: block!important; margin-top: .1em}
+.MJXp-char {display: block!important}
+.MJXp-mo {margin: 0 .15em}
+.MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+.MJXp-denom {display: inline-table!important; width: 100%}
+.MJXp-denom > * {display: table-row!important}
+.MJXp-surd {vertical-align: top}
+.MJXp-surd > * {display: block!important}
+.MJXp-script-box > *  {display: table!important; height: 50%}
+.MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+.MJXp-script-box > *:last-child > * {vertical-align: bottom}
+.MJXp-script-box > * > * > * {display: block!important}
+.MJXp-mphantom {visibility: hidden}
+.MJXp-munderover {display: inline-table!important}
+.MJXp-over {display: inline-block!important; text-align: center}
+.MJXp-over > * {display: block!important}
+.MJXp-munderover > * {display: table-row!important}
+.MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+.MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+.MJXp-mtr {display: table-row!important}
+.MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+.MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-mlabeledtr {display: table-row!important}
+.MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+.MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+.MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+.MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+.MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+.MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+.MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+.MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+.MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+.MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+.MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+.MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+.MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+.MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+</style></head>
+    <body data-new-gr-c-s-check-loaded="14.1174.0" data-gr-ext-installed=""><div id="MathJax_Message" style="display: none;"></div>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = "space";
+            <!-- window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "space"; -->
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('space')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents" aria-hidden="false">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item affix "><a href="https://portal.e-yantra.org/themeBook/hb/welcome.html" tabindex="0">Welcome to Hologlyph Bots theme 😄</a></li><li class="spacer"></li><li class="chapter-item "><div>Stage 1</div></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/task_0.html" tabindex="0">Task 0</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/Installation_task0.html" tabindex="0">Installation of Ubuntu and ROS</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/PB_task0.html" tabindex="0">Submission Instructions </a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/codechef.html" tabindex="0">Codechef Contest</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/learning_resources.html" tabindex="0">Learning Resources</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_resources.html" tabindex="0">Linux Resources</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_file_system_directories.html" tabindex="0">Linux File System Directories</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_file_permissions.html" tabindex="0">Linux File Permissions</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/linux_file_commands.html" tabindex="0">Linux Commands</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/shell_scripting.html" tabindex="0">Shell Scripting</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/Shell_scripting_example.html" tabindex="0">Example_1</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/linux/shell_scripting_example2.html" tabindex="0">Example_2</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_0/learning_resources/python/pyhton_resources.html" tabindex="0">Python Resources</a></li></ol></li></ol></li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1.html" tabindex="0">Task 1</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1a_prob_statement.html" tabindex="0">Task 1A</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1a_prob_statement.html" tabindex="0">Problem Statement</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1a_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_prob_statement.html" tabindex="0">Task 1B</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_prob_statement.html" tabindex="0">Problem Statement</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_gazebo.html" tabindex="0">Creating the package and Robot Description</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_launch.html" tabindex="0">Creating A Launch File And Setup</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_controller.html" tabindex="0">Controller</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_simplified.html" tabindex="0">Simplified Setup</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html" class="active" tabindex="0">Learning Resources</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html" class="active" tabindex="0">ROS2 Concepts</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/Ws_pk_resource.html" tabindex="0">Setting up Workspaces and Packages</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_pubsub_example.html" tabindex="0">ROS2 Publisher-Subscriber and Service Example (Python)</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/task_1b_services.html" tabindex="0">ROS2 Services (Task 1B)</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2_motiv.html" tabindex="0">Task 2</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2a_prob_statement.html" tabindex="0">Task 2A</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2a_prob_statement.html" tabindex="0">Problem Statement</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2a_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2b_prob_statement.html" tabindex="0">Task 2B</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2b_prob_statement.html" tabindex="0">Problem Statement</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/task_2b_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_2/computer_vision.html" tabindex="0">Learning Resources</a></li></ol></li><li class="chapter-item "><div></div></li><li class="spacer"></li><li class="chapter-item "><div>Stage 2</div></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3_intro.html" tabindex="0">Task 3</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3a_pb.html" tabindex="0">Task 3A: Bot Design</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3b_arena.html" tabindex="0">Task 3B: Arena Setup</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_testing.html" tabindex="0">Task 3C: Hardware Testing</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_battery_section.html" tabindex="0">Battery and Buck-Converter Testing</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_ESP32_testing.html" tabindex="0">ESP32 and Servo Motor Testing</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_camera_testing.html" tabindex="0">Camera Testing</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/task_3c_submission.html" tabindex="0">Submission Instructions</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/Task4.html" tabindex="0">Task 4</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/task4a.html" tabindex="0">Task 4a : Bot Fabrication And Test Run</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/task4b.html" tabindex="0">Task 4b : Camera Calibration</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/Task4c.html" tabindex="0">Task 4c : Open Loop Control</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/Task_4b_learning_res.html" tabindex="0">Learning Resources</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/Task_4b_learning_res.html" tabindex="0">Why To Calibrate?📏</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/Task4c_learning_res.html" tabindex="0">Let's MicroROS : Part 1</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_4/learning_resources/micro_ros_example.html" tabindex="0">Let's MicroROS : Part 2</a></li></ol></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_5/task5_intro.html" tabindex="0">Task 5</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_5/task5a.html" tabindex="0">Task 5a : Close loop Control</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_5/task5b.html" tabindex="0">Task 5b : Mini Theme Run</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_6/Task6.html" tabindex="0">Task 6</a><a class="toggle" tabindex="0"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_6/Task6.html" tabindex="0">General Instructions</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_6/Task6_submission.html" tabindex="0">Submission Instructions</a></li></ol></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Task_3/hardware_procurement.html" tabindex="0">Hardware Procurement</a></li><li class="spacer"></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/Rulebook/rulebook.html" tabindex="0">Rulebook</a></li><li class="spacer"></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/git_github.html" tabindex="0">Git and GitHub</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/github_challenge.html" tabindex="0">Github_Challenge</a></li><li class="chapter-item "><a href="https://portal.e-yantra.org/themeBook/hb/coding_std.html" tabindex="0">Coding Standards</a></li><li class="spacer"></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <!-- <html>
+ 	<head>
+ 	<style>
+ 		
+ 	@media only screen and (max-width: 600px) {
+ 	  .eyrc_ckt{
+ 			display:none;
+ 		}
+ 	}
+ 
+ 	</style>
+ 	</head>
+ 	<body>
+ 		<div>
+ 		<center></center>
+ 			<div style="display:flex; justify-content:space-between;padding:10px;padding-top:0">
+ 				<div >
+ 					<img src="https://www.e-yantra.org/img/eYantra_logo.svg" alt="e-yantra_logo" height="40px" style="padding:10px 15px;" />
+ 				</div>
+ 				<div>
+ 					<img src="https://raw.githubusercontent.com/kalindkaria/typora-md-assets/master/maze_bot/assets/eyrc-header.svg" height="80px"  class="eyrc_ckt">
+ 				</div>
+ 				<div style="font-weight:900;font-size:20px;text-align:center;padding:10px 15px">
+ 					Robotics Competition<br>
+ 					2023-24
+ 				</div>
+ 			</div>
+ 			
+ 		</div>
+ 	</body>
+ </html>
+ 
+ 
+ -->
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar autohide sticky bordered" style="background-color: transparent;">
+                    <div style="width:100%">
+                        
+                        	
+                        	<style>
+                        		
+                        	@media only screen and (max-width: 600px) {
+                        	  .eyrc_ckt{
+                        			display:none;
+                        		}
+                        	}
+                        
+                        	</style>
+                        	
+                        	
+                        		<div>
+                        		<center></center>
+                        			<div style="display:flex; justify-content:space-between;padding:10px;padding-top:0">
+                        				<div>
+                        					<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/eYantra_logo.svg" alt="e-yantra_logo" height="40px" style="padding:10px 15px;">
+                        				</div>
+                        				<div>
+                        					<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/eyrc-header.svg" height="80px" class="eyrc_ckt">
+                        				</div>
+                        				<div style="font-weight:900;font-size:20px;text-align:center;padding:10px 15px">
+                        					Robotics Competition<br>
+                        					2023-24
+                        				</div>
+                        			</div>
+                        			
+                        		</div>
+                        	
+                        
+                        
+                        
+                    </div>
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar" aria-expanded="true">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="space">Space (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">eYRC 2023-24: Hologlyph Bots </h1>
+
+                    <div class="right-buttons">
+                        <div id="navigation-buttons" type="button" onclick=" window.open(&#39;https://portal.e-yantra.org/profile_home&#39;, &#39;_blank&#39;)">Home</div>
+                        <div id="navigation-buttons" type="button" onclick=" window.open(&#39;https://discuss.e-yantra.org/c/astrotinker-bot/&#39;, &#39;_blank&#39;)">Forum</div>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="welcome-to-ros2-learning-resources"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#welcome-to-ros2-learning-resources">Welcome to ROS2 learning resources!</a></h1>
+<h2 id="1basics-of-ros"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#1basics-of-ros">1.Basics of ROS</a></h2>
+<p><font size="4"><strong>First, What and Why ROS?</strong> </font><br>
+As defined by its developers, 'The Robot Operating System (ROS) is a set of software libraries and tools that help you build robot applications. From drivers to state-of-the-art algorithms, and with powerful developer tools, ROS has what you need for your next robotics project. And it's all open source.'</p>
+<p><strong>(Although ROS stands for Robot Operating System, it is not actually an OS! its a framework)</strong></p>
+<p>The development of ROS is overseen by  <a href="https://www.openrobotics.org/" target="_blank">Open Robotics</a> You can learn more about ROS on its official <a href="https://www.ros.org/" target="_blank">website</a></p>
+<p>There is another video which inspire you to move to ROS</p>
+<p><a href="https://youtu.be/LyC9RAYE96M?si=1LPgg_eDUidA2a3Q" target="_blank"><strong>What is ROS? Why it's Important for making Robots!</strong></a></p>
+<p>In recent years the ROS project has undergone a significant upgrade, and newer releases come under the name “ROS 2”. A significant portion of the documentation and tutorials available online is for the original ROS (now sometimes called ROS 1), however ROS 1 will no longer be receiving updates.
+And hence, in our theme we will be working with ROS2 Humble, which is one of the many <a href="https://docs.ros.org/en/foxy/Releases.html" target="_blank">ROS2 distributions</a> released every year!</p>
+<center>   
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/humble-small.png" alt="ROS2 Logo" width="200" height="200"> 
+<img class="image-bg" src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/ros2_logo.png" alt="ROS2 Logo" width="200" height="200">  
+</center>
+<p>With no further ado, let's get started with ROS2.<br>
+This page contains a broad overview of some key concepts that you will be using in almost every robotics project:</p>
+<ol>
+<li>
+<p>Nodes</p>
+</li>
+<li>
+<p>Topics and Messages</p>
+</li>
+<li>
+<p>Services</p>
+</li>
+<li>
+<p>Launch Files</p>
+</li>
+<li>
+<p>Packages</p>
+</li>
+<li>
+<p>Workspace</p>
+</li>
+</ol>
+<h2 id="ros-concepts"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#ros-concepts">ROS Concepts</a></h2>
+<h3 id="1-nodes"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#1-nodes">1. Nodes</a></h3>
+<p>A ROS system is made up of a bunch of smaller programs that all run at once and talk to each other. Each of these programs is called a node. A ROS node is very similar to any other command-line program, except that it is able to utilise the ROS libraries, and other parts of the ROS ecosystem will be aware of it. A node is typically designed to perform one specific task as part of the larger system. Some example tasks a node could perform are:</p>
+<ul>
+<li>Reading data from a sensor</li>
+<li>Sending control signals to a motor</li>
+<li>Computing a trajectory to follow</li>
+<li>Receiving operator controls from a joystick</li>
+<li>Displaying a visualisation to an operator</li>
+</ul>
+<p>Each ROS node on a computer, and on other computers on the same network, all form part of a ROS network where they can “see” each other. This gives us a huge level of flexibility as we can just as easily develop systems that run entirely on a single machine, or with components distributed between different machines.</p>
+<center>
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/nodes.gif" alt="ROS2 Nodes" width="800">
+</center>
+<p>In the above illustration, you can see that a full robotic system is comprised of many nodes working in concert. In ROS 2, a single executable (C++ program, Python program, etc.) can contain one or more nodes.</p>
+<p>Two ROS commands to work with nodes:</p>
+<ul>
+<li>
+<p><code class="hljs">ros2 run &lt;package_name&gt; &lt;node_name&gt;</code> - To run a node (we’ll talk more about the package name later)</p>
+</li>
+<li>
+<p><code class="hljs">ros2 node list</code> - To see all the nodes currently running on our network.</p>
+</li>
+</ul>
+<p>In the example below, we run a node named <code class="hljs">turtlesim_node</code> from the package <strong>turtlesim</strong> (which is the most common tool used to get familiarized with ROS) using <code class="hljs">ros2 run</code> command. After which if we do <code class="hljs">ros2 node list</code>, we will see a <strong>/turtlesim</strong> node. This command shows that the <strong>/turtlesim</strong> node is running. Now try it yourself! Run the following commands in separated terminals:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-bash hljs">ros2 run turtlesim turtlesim_node
+</code></pre>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-bash hljs">ros2 node list
+</code></pre>
+<p>What was not mentioned here was when you run the <code class="hljs">ros2 run turtlesim turtlesim_node</code> command, a blue window opens up with a random image of a turtle in its center. That is our turtle and its name is <strong>turtle1</strong>. In further topics, you will learn how you can move, spawn, reset, kill (even if you don't want to 😥) your turtle and many more! </p>
+<h4 id="fun-experiment--"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#fun-experiment--">Fun experiment 😜 !!!</a></h4>
+<p>Now let's try a fun experiment! Keep your node running and connect one of your team members' computer with the same Wi-Fi network and try running <code class="hljs">ros2 run turtlesim turtle_teleop_key</code> without running <strong>turtlesim</strong> package in their computer. Now, press the arrow keys. And voila! you just the turtle in <strong>/turtlesim</strong> node even though its on a different computer! That's how powerful ROS is! </p>
+<center>
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/runturtle.png" alt="Running a ROS2 package" width="800">
+</center>
+<center>
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/nodelist.png" alt="ros2 node list output" width="800">
+</center>
+<p>In figure given below, you can see <strong>/turtlesim</strong> and <strong>/teleop_turtle</strong> nodes recognized in a single terminal despite being on different computers!</p>
+<center>
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/otherpcnodelist.png" alt="ros2 node list output in different computer" width="700">
+</center>
+<!-- <div align="center">Figure 1: Miniconda Advanced Installation Options</div> -->
+<h3 id="2-topics-and-messages"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#2-topics-and-messages">2. Topics and Messages</a></h3>
+<p>The way ROS nodes communicate with each other is with topics and messages. A topic is a named location that one (or occasionally multiple) nodes can publish a message to. These nodes are called publishers, and other nodes (called subscribers) can subscribe to the topic to receive them.
+A node may be a publisher for one topic, and a subscriber for a different topic.</p>
+<p>The topic system is great because it lets us write smaller, simpler nodes that are good at one thing, and can communicate with each other to solve larger problems. Let us now extend our example a little further, run the following command in a new terminal to create another node that is <strong>/teleop_turtle</strong> (you can verify the node is running in a seperate terminal tab/window by using <code class="hljs">ros2 node list</code>):</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-bash hljs">ros2 run turtlesim turtle_teleop_key
+</code></pre>
+<p>You will get the following output:</p>
+<center>
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/teleop.png" alt="ros2 turtle_teleop_key output" width="800">
+</center>
+<p>Now while keeping this terminal active, try pressing the arrow keys on your keyboard and notice the turtle. You will see that the turtle starts to move like an RC car!</p>
+<p><strong>NOTE: the key press must be made with the cursor focused on the teleop window. (Not on the turtlesim window)</strong></p>
+<p>The <strong>/teleop_turtle</strong> node only needs to know how to talk to the <strong>/turtlesim</strong> node and publish a <strong>Twist</strong> message (Twist message is used to send linear and angular values to move any body). It doesn't care what anyone else does with the message afterwards. Likewise, the <strong>/turtlesim</strong> node in which the turtle moves doesn’t need to know how to communicate with every node out there, it just needs to subscribe to a topic with <strong>Twist</strong> messages.</p>
+<p>The <strong>/teleop_turtle</strong> node only needs to know the msg type to publish to the <strong>/turtle1/cmd_vel</strong> topic. i.e. It will publish a <strong>Twist message</strong> (Twist message is used to send linear and angular values to move any body) to <strong>/turtle1/cmd_vel</strong> topic. It doesn't care what anyone else does with the message afterwards. Likewise, the <strong>/turtlesim</strong> node in which the turtle moves doesn’t need to know how to communicate with every node out there, it just needs to subscribe to the <strong>/turtle1/cmd_vel</strong> topic with <strong>Twist</strong> messages.</p>
+<p>Few useful commands for working with topics are:</p>
+<ul>
+<li>
+<p><code class="hljs">ros2 topic list</code> - See all the available topics being published to</p>
+</li>
+<li>
+<p><code class="hljs">ros2 topic echo &lt;topic name&gt;</code> - Pretend we are a subscriber and see the messages being published.</p>
+</li>
+<li>
+<p><code class="hljs">ros2 topic info &lt;topic name&gt;</code> - Gives the message type with publisher and subscriber count.</p>
+</li>
+</ul>
+<p>In the below example, you can see <strong>/teleop_turtle</strong> node we ran earlier is publishing to the topic <strong>/turtle1/cmd_vel</strong> when we press arrow keys.</p>
+<center>
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/topiclist.png" alt="ros2 topic list output" width="800">
+</center>
+<center>
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/topicinfo.png" alt="ros2 topic info output" width="800">
+</center>
+<p><strong>NOTE:</strong> Learn more about topics, publishers and subscribers <a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html" target="_blank">here</a>.</p>
+<h3 id="3-services"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#3-services">3. Services</a></h3>
+<p>Unlike topics, which allow a node to share a constant stream of messages to anyone who cares to listen, services offer a single request/reply communication from one node to another. The content of the reply may be useful information, such as the result of a calculation, or it may just be an indication that the request has been received.</p>
+<p>To use our turtle as an example, let's say we want to spawn another turtle. This can be achieved by a single message to spawn a turtle and a constant communication like that of a publisher and subscriber is not needed.
+For such cases we do not use ROS topics. We just call a service for our <strong>/turtlesim</strong> node to spawn another turtle. You can do that by running the following command:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-bash hljs">ros2 service call /spawn turtlesim/srv/Spawn <span class="hljs-string">"{'x': 2.0 ,'y': 2.0 ,'theta': 0.0}"</span>
+</code></pre>
+<p>You will notice that another turtle has spawned near the lower left corner corner of your screen! And when you run <code class="hljs">ros2 topic list</code>, you will see that new topics have been created for our new <strong>turtle2</strong>.</p>
+<p>Again, two useful commands for working with services are:</p>
+<ul>
+<li>
+<p><code class="hljs">ros2 service list</code> - To see a list of all services available</p>
+</li>
+<li>
+<p><code class="hljs">ros2 service call &lt;service_name&gt; &lt;service_message&gt;</code> - To manually call a service ith the command.</p>
+</li>
+</ul>
+<p>In our above example, we call a service called <strong>/spawn</strong> to spawn the new turtle and this service sends the <strong>turtlesim/srv/Spawn</strong> message type which contains all the info. required to spawn the new turtle. You can try various other services on your own. Say, try the <strong>/reset</strong> service and it shall reset your <strong>turtle1</strong> to its initial position and orientation.</p>
+<center>
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/servicelist.png" alt="ros2 service list output" width="800">
+</center>
+<h3 id="4-launch-files"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#4-launch-files">4. Launch Files</a></h3>
+<p>When we’re working on a ROS project we will often be running the same nodes over and over again with the same parameters and remappings. This becomes pretty tedious as you need to remember to open all the terminals and get all the parameters right, then stop them all when you’re done.</p>
+<p>To help with this, ROS provides a scripting system called “launching” 🚀 that lets us configure and launch a bunch of nodes together in a group. In ROS 1 the launch system was based on XML files, and although ROS 2 does technically support the XML format, currently the more popular and powerful approach is a Python-based system.</p>
+<p>Unfortunately, the syntax of the Python scripts can also be pretty confusing to wrap your head around. And for that reason, we won't be going into much further details for now.</p>
+<p>For now, just know that the two ways to run a launch file are:</p>
+<ul>
+<li>
+<p><code class="hljs">ros2 launch &lt;package_name&gt; &lt;launch_file_name&gt;</code> - To run a launch file from a package</p>
+</li>
+<li>
+<p><code class="hljs">ros2 launch /path/to/launch/file</code> - To run a launch file directly (useful for a quick test, but putting into a package is better long-term).</p>
+</li>
+</ul>
+<h3 id="5-packages"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#5-packages">5. Packages</a></h3>
+<p>Ok, so we know that a ROS system is made up of all these nodes and parameters and launch files and so on, but how are these organised?</p>
+<p>The first level of organisation is called a package. A package is a way that we can group a bunch of closely related files together, and especially (but not always) so that we can reuse common code in different projects. A package can contain a variety of things, such as a single node, a set of nodes and configuration files, models for a robot, software libraries, or anything else you want!</p>
+<center>
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/packages.png" alt="ros2 packages illustration" width="500">
+</center>
+<p>In addition to its own files, each package includes a list of which other packages it depends on, things it needs in order to work which are known as <em><strong>dependencies</strong></em>.</p>
+<p>Let us recall the syntax we shared in the <strong>Nodes</strong> section:</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-bash hljs">ros2 run &lt;package_name&gt; &lt;node_name&gt;
+</code></pre>
+<p>In our example, the name of package we are using is <strong>turtlesim</strong>. And we run the <strong>/turtlesim_node</strong> which is present inside the <strong>turtlesim</strong> package.</p>
+<pre><div class="buttons"><button class="fa fa-copy clip-button" title="Copy to clipboard" aria-label="Copy to clipboard"><i class="tooltiptext"></i></button></div><code class="language-bash hljs">ros2 run turtlesim turtlesim_node
+</code></pre>
+<h3 id="6-workspace"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#6-workspace">6. Workspace</a></h3>
+<p>When we work on ROS projects we create something called a workspace to keep all our own packages inside it. You can manage this however you want, but it generally makes sense for each project to have its own workspace, which will contain whatever packages are relevant to that project. Note that here we’re talking about packages to be compiled from source (either written ourselves or pulled from somewhere like GitHub), the system-installed packages will be visible to all our workspaces.</p>
+<p>If we were to build our code using normal tools, they wouldn’t necessarily know where to find all the ROS components, and more importantly ROS wouldn’t know where to find our packages. This is where the build tool <code class="hljs">colcon</code> comes in.</p>
+<p>When we use colcon to build our workspace, it will take all our source files from a src directory, build them into a build directory, and “install” them into an install directory. This isn’t too different from other build tools, however it also creates a setup.bash file with all the information the system needs to how to find our packages, just like we had for the system installation. So every time we open a terminal to run code from that project, we need to source that workspace by running <code class="hljs">source path/to/workspace/setup.bash</code>.</p>
+<center>
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/workspace.png" alt="ros2 workspace illustration" width="500">
+</center>
+<p>We sometimes call this the overlay, because it goes over the underlay. With the overlay sourced, ROS will first look for packages in the our workspace (the overlay), before looking at the system installation (the underlay). This way we can test against modified/updated versions of base packages without having to uninstall them. We don’t usually want to automatically source this using our <code class="hljs">~/.bashrc</code> file, since we want to keep each workspace separate.</p>
+<p>There’s nothing stopping you from stacking overlays on top of each other, with each treating the previous as an underlay, but you’d only need that for complex projects.</p>
+<center>
+<img src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/workspace2.png" alt="ros2 workspace illustration" width="500">
+</center>
+<p>When we build using colcon, it doesn’t matter whether our packages are written in C++ or Python, and if the dependencies are simple or complex, it just figures everything out for us. This whole process may seem a bit complicated at first, but it is easy to get used to, and once we have projects with more than a couple of packages it makes things much simpler.</p>
+<hr>
+<p>That is all for our summary of very important concepts from ROS. But we would strongly recommend going through the ROS tutorials from the official docs to get a much better understanding of ROS. Specifically the beginner section, link below:</p>
+<p><a href="https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools.html" target="_blank">ROS2 Beginner Guide</a>.</p>
+<h2 id="2urdf-"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#2urdf-">2.URDF :</a></h2>
+<p>When we create a robotic system, there may be many different software components that need to know about the physical characteristics of the robot.So in ROS URDF files are used.
+<strong>URDF</strong> (Unified Robot Description Format) is a file format for specifying the geometry and organization of robots in ROS.</p>
+<p>For more details look 👉 <a href="https://docs.ros.org/en/humble/Tutorials/Intermediate/URDF/Building-a-Visual-Robot-Model-with-URDF-from-Scratch.html" target="_blank">here</a>.</p>
+<p>Also you can refer this 👉 <a href="https://articulatedrobotics.xyz/ready-for-ros-7-urdf/" target="_blank">website</a>.</p>
+<hr>
+<h3 id="references-and-additional-resources"><a class="header" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html#references-and-additional-resources">References and additional resources</a></h3>
+<ul>
+<li>
+<p><a href="https://articulatedrobotics.xyz/ready-for-ros-4-ros-overview/">Getting Ready for ROS Part 4: ROS Overview (10 concepts you need to know)</a></p>
+</li>
+<li>
+<p><a href="https://docs.ros.org/en/humble/index.html">ROS2 Wiki (Humble Documentation)</a></p>
+</li>
+<li>
+<p><a href="https://youtu.be/7TVWlADXwRw?si=FzR2Zk2YqlUNgnX6">What Is ROS2? - Framework Overview</a></p>
+</li>
+<li>
+<p><a href="https://youtu.be/yn638LmVwlw?si=fVh1aEK2I1oqv1Kj">ROS1 vs ROS2</a></p>
+</li>
+</ul>
+<hr>
+<center><b>
+All the best 👍 !!
+</b>
+</center>
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_submission.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="https://portal.e-yantra.org/themeBook/hb/Task_1/task_1b_submission.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="https://portal.e-yantra.org/themeBook/hb/Task_1/learning_resources/ROS2_resources.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/elasticlunr.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/mark.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/searcher.js.download" type="text/javascript" charset="utf-8"></script>
+
+        <script src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/clipboard.min.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/highlight.js.download" type="text/javascript" charset="utf-8"></script>
+        <script src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/book.js.download" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="./ROS2 Concepts - eYRC 2023-24_ Hologlyph Bots_files/sidebar.js.download"></script>
+
+
+    
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>
