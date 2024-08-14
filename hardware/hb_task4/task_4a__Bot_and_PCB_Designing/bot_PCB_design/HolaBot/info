@@ -1,0 +1,305 @@
+{
+  "uuid": "bfe0a9be1a41f8e3149ca3024391fbaf",
+  "path": "Offline/HolaBot",
+  "name": "HolaBot",
+  "content": "PCB Board for Hologlyph Bot eYRC23",
+  "created_at": "2023-12-06 14:31:03",
+  "updated_at": "2023-12-11 14:49:19",
+  "stick": "",
+  "documents": [
+    {
+      "uuid": "91c938a06bec66afa278459e32e4b308",
+      "title": "Sheet_1",
+      "description": "",
+      "docType": "1",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "33795b146ade4021b7b47a4460c6ae21": 1,
+        "448c2cae50374570b50816a4ee7130ea": 1,
+        "7cd682619b5c4e01ba97a38b0f35e82d": 4,
+        "3c0d30cef11b4fdcac1eef7908e146b1": 2
+      },
+      "BOM": [
+        [
+          "Value",
+          "Quantity",
+          "Package",
+          "Components",
+          "CustomPara"
+        ],
+        [
+          "ESP32 (DEVKITV1)",
+          1,
+          "ESP32-DEVKITV1_ESP32-DEVKITV1",
+          "1",
+          {
+            "Contributor": "jagils",
+            "spiceSymbolName": "ESP32-DEVKIT-V1-30PIN",
+            "Supplier": "",
+            "Manufacturer Part": "",
+            "puuid": "fed5720f683e4a9294f3fca4b45ca860",
+            "uuid": "448c2cae50374570b50816a4ee7130ea"
+          }
+        ],
+        [
+          "Arduino Switch",
+          1,
+          "1X02 2.54MM HOLES HEADERS PINS 1MM HOLES",
+          "H1",
+          {
+            "Contributor": "Cameron102",
+            "Supplier Part": "",
+            "Supplier": "",
+            "spiceSymbolName": "Header pins 1x02 1MM HOLES",
+            "Manufacturer Part": "",
+            "puuid": "74b88db307f24c8a8e1da633a0abccff",
+            "uuid": "3c0d30cef11b4fdcac1eef7908e146b1"
+          }
+        ],
+        [
+          "Input Female Screw Header",
+          1,
+          "1X02 2.54MM HOLES HEADERS PINS 1MM HOLES",
+          "H2",
+          {
+            "Contributor": "Cameron102",
+            "Supplier Part": "",
+            "Supplier": "",
+            "spiceSymbolName": "Header pins 1x02 1MM HOLES",
+            "Manufacturer Part": "",
+            "puuid": "74b88db307f24c8a8e1da633a0abccff",
+            "uuid": "3c0d30cef11b4fdcac1eef7908e146b1"
+          }
+        ],
+        [
+          "Wheel 1 Servo - Pin 25",
+          1,
+          "KKTL-MOTOR-SERVO-01",
+          "U1",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "kakatuland",
+            "spiceSymbolName": "KKTL-MOTOR-SERVO-01 COPY",
+            "puuid": "3b325b13a1e74e118c559c196f22ae02",
+            "uuid": "7cd682619b5c4e01ba97a38b0f35e82d"
+          }
+        ],
+        [
+          "Modulo StepDown XL4015",
+          1,
+          "XL4015-5A-MODULE",
+          "U2",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "Luis Tapia",
+            "spiceSymbolName": "Modulo StepDown XL4015",
+            "puuid": "622bc9a68c8e4309b96f8ecebe9bfb6a",
+            "uuid": "33795b146ade4021b7b47a4460c6ae21"
+          }
+        ],
+        [
+          "Wheel 2 Servo - Pin 26",
+          1,
+          "KKTL-MOTOR-SERVO-01",
+          "U3",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "kakatuland",
+            "spiceSymbolName": "KKTL-MOTOR-SERVO-01 COPY",
+            "puuid": "3b325b13a1e74e118c559c196f22ae02",
+            "uuid": "7cd682619b5c4e01ba97a38b0f35e82d"
+          }
+        ],
+        [
+          "Wheel 3 Servo - Pin 27",
+          1,
+          "KKTL-MOTOR-SERVO-01",
+          "U4",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "kakatuland",
+            "spiceSymbolName": "KKTL-MOTOR-SERVO-01 COPY",
+            "puuid": "3b325b13a1e74e118c559c196f22ae02",
+            "uuid": "7cd682619b5c4e01ba97a38b0f35e82d"
+          }
+        ],
+        [
+          "Pen Servo - Pin 33",
+          1,
+          "KKTL-MOTOR-SERVO-01",
+          "U5",
+          {
+            "Manufacturer": "",
+            "Manufacturer Part": "",
+            "Supplier Part": "",
+            "Supplier": "",
+            "link": "",
+            "Contributor": "kakatuland",
+            "spiceSymbolName": "KKTL-MOTOR-SERVO-01 COPY",
+            "puuid": "3b325b13a1e74e118c559c196f22ae02",
+            "uuid": "7cd682619b5c4e01ba97a38b0f35e82d"
+          }
+        ]
+      ],
+      "updateTime": 1702284344,
+      "createTime": 1701853264,
+      "histories": [],
+      "created_at": "2023-12-06 14:31:04",
+      "updated_at": "2023-12-11 14:15:44"
+    },
+    {
+      "uuid": "c6a779d824cc72f927e1f39bc7350c98",
+      "puuid": "bfe0a9be1a41f8e3149ca3024391fbaf",
+      "title": "PCB_HolaBot_4",
+      "filename": "PCB_HolaBot_4.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "74b88db307f24c8a8e1da633a0abccff": 2,
+        "3b325b13a1e74e118c559c196f22ae02": 4,
+        "fed5720f683e4a9294f3fca4b45ca860": 1,
+        "622bc9a68c8e4309b96f8ecebe9bfb6a": 1
+      },
+      "BOM": [],
+      "updateTime": 1702031461,
+      "createTime": 1701864060,
+      "histories": [],
+      "created_at": "2023-12-06 17:31:00",
+      "updated_at": "2023-12-08 16:01:01"
+    },
+    {
+      "uuid": "8a7eaaaf894b362cd41874cbbf436495",
+      "puuid": "bfe0a9be1a41f8e3149ca3024391fbaf",
+      "title": "PCB_HolaBot",
+      "filename": "PCB_HolaBot.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "fed5720f683e4a9294f3fca4b45ca860": 1,
+        "74b88db307f24c8a8e1da633a0abccff": 2,
+        "3b325b13a1e74e118c559c196f22ae02": 4,
+        "622bc9a68c8e4309b96f8ecebe9bfb6a": 1
+      },
+      "BOM": [],
+      "updateTime": 1701952949,
+      "createTime": 1701952949,
+      "histories": [],
+      "created_at": "2023-12-07 18:12:29",
+      "updated_at": "2023-12-07 18:12:29"
+    },
+    {
+      "uuid": "f61bd2afdc67bdb08666c2efa59344ff",
+      "puuid": "bfe0a9be1a41f8e3149ca3024391fbaf",
+      "title": "PCB_HolaBot_Simplified",
+      "filename": "PCB_HolaBot_Simplified.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "fed5720f683e4a9294f3fca4b45ca860": 1,
+        "74b88db307f24c8a8e1da633a0abccff": 2,
+        "3b325b13a1e74e118c559c196f22ae02": 4,
+        "622bc9a68c8e4309b96f8ecebe9bfb6a": 1
+      },
+      "BOM": [],
+      "updateTime": 1702038272,
+      "createTime": 1702033333,
+      "histories": [],
+      "created_at": "2023-12-08 16:32:13",
+      "updated_at": "2023-12-08 17:54:32"
+    },
+    {
+      "uuid": "5167ce4782ef6b19702a963c7515df6d",
+      "puuid": "bfe0a9be1a41f8e3149ca3024391fbaf",
+      "title": "PCB_HolaBot_6",
+      "filename": "PCB_HolaBot_6.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "fed5720f683e4a9294f3fca4b45ca860": 1,
+        "74b88db307f24c8a8e1da633a0abccff": 2,
+        "3b325b13a1e74e118c559c196f22ae02": 4,
+        "622bc9a68c8e4309b96f8ecebe9bfb6a": 1
+      },
+      "BOM": [],
+      "updateTime": 1702157762,
+      "createTime": 1702156243,
+      "histories": [],
+      "created_at": "2023-12-10 02:40:43",
+      "updated_at": "2023-12-10 03:06:02"
+    },
+    {
+      "uuid": "621cb67962875587b25ad08444e84af7",
+      "puuid": "bfe0a9be1a41f8e3149ca3024391fbaf",
+      "title": "PCB_HolaBot_7",
+      "filename": "PCB_HolaBot_7.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "fed5720f683e4a9294f3fca4b45ca860": 1,
+        "74b88db307f24c8a8e1da633a0abccff": 2,
+        "3b325b13a1e74e118c559c196f22ae02": 4,
+        "622bc9a68c8e4309b96f8ecebe9bfb6a": 1
+      },
+      "BOM": [],
+      "updateTime": 1702283444,
+      "createTime": 1702282694,
+      "histories": [],
+      "created_at": "2023-12-11 13:48:14",
+      "updated_at": "2023-12-11 14:00:44"
+    },
+    {
+      "uuid": "b94d3c4500e367bad11addeeeb2cc749",
+      "puuid": "bfe0a9be1a41f8e3149ca3024391fbaf",
+      "title": "PCB_HolaBot_8",
+      "filename": "PCB_HolaBot_8.json",
+      "description": "",
+      "docType": "3",
+      "master": "",
+      "thumb": "/images/thumb-default.png",
+      "components": {
+        "fed5720f683e4a9294f3fca4b45ca860": 1,
+        "74b88db307f24c8a8e1da633a0abccff": 2,
+        "3b325b13a1e74e118c559c196f22ae02": 4,
+        "622bc9a68c8e4309b96f8ecebe9bfb6a": 1
+      },
+      "BOM": [],
+      "updateTime": 1702286359,
+      "createTime": 1702285291,
+      "histories": [],
+      "created_at": "2023-12-11 14:31:31",
+      "updated_at": "2023-12-11 14:49:19"
+    }
+  ],
+  "sort": [],
+  "title": "HolaBot",
+  "foldername": "HolaBot",
+  "schfilename": "HolaBot.json",
+  "schfilemtime": 1702284344505
+}
