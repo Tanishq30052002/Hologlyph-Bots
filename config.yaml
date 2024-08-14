@@ -1,0 +1,36 @@
+hola_bots:
+  - hola_bot_ID: 1
+    dead_bands:
+      left_wheel:
+        positive_rotation: 3
+        negative_rotation: 7
+      right_wheel:
+        positive_rotation: 3
+        negative_rotation: 9
+      rear_wheel:
+        positive_rotation: 3
+        negative_rotation: 7
+
+  - hola_bot_ID: 2
+    dead_bands:
+      left_wheel:
+        positive_rotation: 3
+        negative_rotation: 7
+      right_wheel:
+        positive_rotation: 3
+        negative_rotation: 9
+      rear_wheel:
+        positive_rotation: 3
+        negative_rotation: 9
+
+  - hola_bot_ID: 3
+    dead_bands:
+      left_wheel:
+        positive_rotation: 2
+        negative_rotation: 6
+      right_wheel:
+        positive_rotation: 2
+        negative_rotation: 6
+      rear_wheel:
+        positive_rotation: 2
+        negative_rotation: 8
