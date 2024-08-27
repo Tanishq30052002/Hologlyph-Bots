@@ -369,7 +369,7 @@ python3 hardware/hb_task6/bot_controls.py
 
   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=_6kzz_bGMEQ)
 
-### 6. Task 6A - Image Generator
+### 7. Task 6B - Image Generator
 ```bash
 # Run Micro Ros Agent from docker
 docker run -it --rm -v /dev:/dev --privileged --net=host microros/micro-ros-agent:humble udp4 --port 8888
@@ -383,7 +383,7 @@ python3 hardware/hb_task6/reachGraderStart.py
 # Run Controller
 python3 hardware/hb_task6/bot_controls.py -image_mode=true
 ```
- - ### Task 6A Demonstration Video
+ - ### Task 6B Demonstration Video
 
   Watch our demonstration video on YouTube.
 
