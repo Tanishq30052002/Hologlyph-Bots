@@ -23,8 +23,19 @@ Were the Nasca Lines celestial calendars, guiding the ancient Nasca people in th
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Stage 1 - Simulation Tasks](#stage-1---simulation-tasks)
-  - [Usage - Task 1A - Snowman Task - ROS2 Turtlesim Control](#usage---task-1a---snowman-task---ros2-turtlesim-control)
-  - [Usage - Task 1B - Geometry Shapes w/o Inverse Kinematics](#usage---task-1b---geometry-shapes-wo-inverse-kinematics)
+  - [Usage - Task 1A - Snowman Task - ROS2 Turtlesim Control](#1-usage---task-1a---snowman-task---ros2-turtlesim-control)
+  - [Usage - Task 1B - Geometry Shapes w/o Inverse Kinematics](#2-usage---task-1b---geometry-shapes-wo-inverse-kinematics)
+  - [Usage - Task 2A - Geometry Shapes with Inverse Kinematics on 1 Robot](#3-usage---task-2a---geometry-shapes-with-inverse-kinematics-on-1-robot)
+  - [Usage - Task 2A - Geometry Shapes with Inverse Kinematics on 1 Robot](#4-usage---task-2b---geometry-shapes-with-inverse-kinematics-on-3-robot)
+- [Stage 2 - Hardware Tasks](#stage-2---hardware-tasks)
+    - [Task 3 - Hardware Testing](#1-task-3---hardware-testing)
+    - [Task 4A - Bot Fabrication and Test Run](#2-task-4a---bot-fabrication-and-test-run)
+    - [Task 4B - Camera Calibaration and Feedback Node](#3-task-4b---camera-calibaration-and-feedback-node)
+    - [Task 4C - Open Loop Control](#4-task-4c---open-loop-control)
+    - [Task 5A - Closed Loop Control](#5-task-5a---closed-loop-control)
+    - [Task 5B - Mini Theme Run](#6-task-5b---mini-theme-run)
+    - [Task 6A - Function Generator](#7-task-6a---function-generator)
+    - [Task 6B - Image Generator](#8-task-6b---image-generator)
 
 ## Supported Operating System
 
@@ -349,7 +360,7 @@ python3 hardware/hb_task5/task_5b__MiniThemeRun.py
 
   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=L2WuoDtZy2Y)
 
-### 6. Task 6A - Function Generator
+### 7. Task 6A - Function Generator
 ```bash
 # Run Micro Ros Agent from docker
 docker run -it --rm -v /dev:/dev --privileged --net=host microros/micro-ros-agent:humble udp4 --port 8888
@@ -369,7 +380,7 @@ python3 hardware/hb_task6/bot_controls.py
 
   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=_6kzz_bGMEQ)
 
-### 7. Task 6B - Image Generator
+### 8. Task 6B - Image Generator
 ```bash
 # Run Micro Ros Agent from docker
 docker run -it --rm -v /dev:/dev --privileged --net=host microros/micro-ros-agent:humble udp4 --port 8888
