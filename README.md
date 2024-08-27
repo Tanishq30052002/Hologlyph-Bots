@@ -184,14 +184,6 @@ This task involves hardware testing and areana priniting
 
   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=LkYmiV9doJM)
 
-### 2. Task 4A - Bot Fabrication and Test Run
-
-- ### Task 4A Demonstration Video
-
-  Watch our demonstration video on YouTube.
-
-  [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=LkYmiV9doJM)
-
 ### 3. Task 4B - Camera Calibaration and Feedback Node
 
 Raw image from the USB camera has what is known as the fish-eye effect. We need to remove this fish-eye effect to effectively detect Aruco markers in further tasks. Hence it is necessary to calibrate our USB camera.
@@ -302,11 +294,97 @@ ros2 launch image_proc image_proc.launch.py
   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=u3AG3T7k_cs)
 
 ### 4. Task 4C - Open Loop Control
+```bash
+# Run Micro Ros Agent from docker
 docker run -it --rm -v /dev:/dev --privileged --net=host microros/micro-ros-agent:humble udp4 --port 8888
+
+# Run Code Regarding Shapes
+python3 hardware/hb_task4/task_4c__Open_Loop_Control/circle.py # Circle
+python3 hardware/hb_task4/task_4c__Open_Loop_Control/sqaure.py # Square
+python3 hardware/hb_task4/task_4c__Open_Loop_Control/triangle.py # Triangle
+```
 - ### Task 4C Demonstration Video
 
   Watch our demonstration video on YouTube.
 
   [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=5f4-NmnSb9Y)
 
-  
+### 5. Task 5A - Closed Loop Control
+```bash
+# Run Micro Ros Agent from docker
+docker run -it --rm -v /dev:/dev --privileged --net=host microros/micro-ros-agent:humble udp4 --port 8888
+
+# Run Camera Feedback
+python3 hardware/hb_task4/task_4b__Camera_Callibration/feedback.py
+
+# Run code for taking robots to start position
+python3 hardware/hb_task5/task_5a__ReachStart.py
+
+# Run Controller
+python3 hardware/hb_task5/task_5a__ClosedLoopControl.pu
+```
+ - ### Task 5A Demonstration Video
+
+  Watch our demonstration video on YouTube.
+
+  [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=AE-HUOiYAfQ)
+
+### 6. Task 5B - Mini Theme Run
+```bash
+# Run Micro Ros Agent from docker
+docker run -it --rm -v /dev:/dev --privileged --net=host microros/micro-ros-agent:humble udp4 --port 8888
+
+# Run Camera Feedback
+python3 hardware/hb_task4/task_4b__Camera_Callibration/feedback.py
+
+# Run code for taking robots to start position
+python3 hardware/hb_task5/task_5b__ReachStart.py
+
+# Run Controller
+python3 hardware/hb_task5/task_5b__MiniThemeRun.py
+```
+ - ### Task 5B Demonstration Video
+
+  Watch our demonstration video on YouTube.
+
+  [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=L2WuoDtZy2Y)
+
+### 6. Task 6A - Function Generator
+```bash
+# Run Micro Ros Agent from docker
+docker run -it --rm -v /dev:/dev --privileged --net=host microros/micro-ros-agent:humble udp4 --port 8888
+
+# Run Camera Feedback
+python3 hardware/hb_task4/task_4b__Camera_Callibration/feedback.py
+
+# Run code for taking robots to start position
+python3 hardware/hb_task6/reachGraderStart.py
+
+# Run Controller
+python3 hardware/hb_task6/bot_controls.py
+```
+ - ### Task 6A Demonstration Video
+
+  Watch our demonstration video on YouTube.
+
+  [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=_6kzz_bGMEQ)
+
+### 6. Task 6A - Image Generator
+```bash
+# Run Micro Ros Agent from docker
+docker run -it --rm -v /dev:/dev --privileged --net=host microros/micro-ros-agent:humble udp4 --port 8888
+
+# Run Camera Feedback
+python3 hardware/hb_task4/task_4b__Camera_Callibration/feedback.py
+
+# Run code for taking robots to start position
+python3 hardware/hb_task6/reachGraderStart.py
+
+# Run Controller
+python3 hardware/hb_task6/bot_controls.py -image_mode=true
+```
+ - ### Task 6A Demonstration Video
+
+  Watch our demonstration video on YouTube.
+
+  [![YouTube](https://img.shields.io/badge/Watch%20on-YouTube-red?style=for-the-badge&logo=youtube)](https://www.youtube.com/watch?v=julvKPNEnqU)
